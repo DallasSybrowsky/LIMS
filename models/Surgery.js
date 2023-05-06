@@ -11,6 +11,10 @@ const surgerySchema = new Schema({
     unique: true,
     required: true,
   },
+  employeeId: {
+    type: Schema.Types.ObjectId,
+    ref: "Employee",
+  },
   surgeryDate: {
     type: Date,
     required: true,
@@ -21,6 +25,10 @@ const surgerySchema = new Schema({
   },
   surgeryNotes: {
     type: String,
+  },
+  surgeryCode: {
+    type: Number,
+    required: true,
   },
 });
 

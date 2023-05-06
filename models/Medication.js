@@ -26,6 +26,11 @@ const medicationSchema = new Schema({
     required: true,
     trim: true,
   },
+  lotNumber: {
+    type: String,
+    required: true,
+    trim: true,
+  },
   medcationStartDate: {
     type: Date,
     required: true,

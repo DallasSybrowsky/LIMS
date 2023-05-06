@@ -23,6 +23,18 @@ export const getMedicationById = async (req, res) => {
   }
 };
 
+// Get all medications by lot number
+export const getMedicationByLotNumber = async (req, res) => {
+  try {
+    const medications = await Medication.find({
+      lotNumber: req.params.lotNumber,
+    });
+    res.json(medications);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 // Create a new medication for a specific pet
 export const createMedication = async (req, res) => {
   const medication = new Medication(req.body);

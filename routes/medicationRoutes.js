@@ -2,6 +2,7 @@ import express from "express";
 import {
   getAllMedications,
   getMedicationById,
+  getMedicationByLotNumber,
   createMedication,
   updateMedication,
   deleteMedication,
@@ -14,6 +15,9 @@ router.get("/", getAllMedications);
 
 // Get a specific medication for a specific pet by id
 router.get("/:id", getMedicationById);
+
+// Get all medication by lot number
+router.get("/", getMedicationByLotNumber);
 
 // Create a new medication for a specific pet
 router.post("/", createMedication);

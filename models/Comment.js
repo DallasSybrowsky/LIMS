@@ -15,10 +15,26 @@ const commentSchema = new Schema({
     type: String,
     required: true,
   },
-  commentData: {
-    type: String,
-    required: true,
-  },
+  commentData: [
+    {
+      commentSubjective: {
+        type: String,
+        required: true,
+      },
+      commentObjective: {
+        type: String,
+        required: true,
+      },
+      commentAssessment: {
+        type: String,
+        required: true,
+      },
+      commentPlan: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
   petId: {
     type: Schema.Types.ObjectId,
     ref: "Pet",
