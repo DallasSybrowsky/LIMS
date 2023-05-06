@@ -1,16 +1,21 @@
-const router = require("express").Router();
-const {
-  getAllAppts,
-  getApptById,
-  createAppt,
-  updateAppt,
-  deleteAppt,
-} = require("../../controllers/apptController");
+import express from "express";
+import apptController from "../controllers/apptController";
 
-// /api/appts
-router.route("/").get(getAllAppts).post(createAppt);
+const router = express.Router();
 
-// /api/appts/:id
-router.route("/:id").get(getApptById).put(updateAppt).delete(deleteAppt);
+// Get route to fetch all appointments
+router.get("/", apptController.getAllAppts);
 
-module.exports = router;
+// Get route to fetch a specific appointment by ID
+router.get("/:id", apptController.getApptById);
+
+// Post route to create a new appointment
+router.post("/", apptController.createAppt);
+
+// Patch route to update an existing appointment
+router.patch("/:id", apptController.updateAppt);
+
+// Delete route to delete an existing appointment
+router.delete("/:id", apptController.deleteAppt);
+
+export default router;

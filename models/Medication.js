@@ -30,6 +30,16 @@ const medicationSchema = new Schema({
     type: Date,
     required: true,
   },
+  medicationDosage: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  medicationFrequency: {
+    type: String,
+    required: true,
+    trim: true,
+  },
   medicationNotes: {
     type: String,
     required: true,

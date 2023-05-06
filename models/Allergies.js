@@ -1,6 +1,6 @@
 import { Schema, Types } from "mongoose";
 
-const allergySChema = new Schema({
+const allergySchema = new Schema({
   petId: {
     type: Schema.Types.ObjectId,
     ref: "Pet",

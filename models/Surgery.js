@@ -1,5 +1,4 @@
 import { Schema, Types } from "mongoose";
-import Pet from "./Pet";
 
 const surgerySchema = new Schema({
   petId: {

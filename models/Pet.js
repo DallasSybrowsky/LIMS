@@ -32,6 +32,15 @@ const petSchema = new Schema({
     ref: "Client",
     required: true,
   },
+  weight: {
+    type: Number,
+  },
+  length: {
+    type: Number,
+  },
+  temperature: {
+    type: Number,
+  },
   appts: [
     {
       type: Schema.Types.ObjectId,
@@ -48,6 +57,24 @@ const petSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: "Medication",
+    },
+  ],
+  previousWeights: [
+    {
+      weight: Number,
+      date: Date,
+    },
+  ],
+  previousLengths: [
+    {
+      length: Number,
+      date: Date,
+    },
+  ],
+  previousTemps: [
+    {
+      temp: Number,
+      date: Date,
     },
   ],
   allergies: [

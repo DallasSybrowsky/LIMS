@@ -1,16 +1,21 @@
-const router = require("express").Router();
-const {
-  getAllClients,
-  getClientById,
-  createClient,
-  updateClient,
-  deleteClient,
-} = require("../../controllers/clientController");
+import express from "express";
+import clientController from "../controllers/clientController";
 
-// /api/clients
-router.route("/").get(getAllClients).post(createClient);
+const router = express.Router();
 
-// /api/clients/:id
-router.route("/:id").get(getClientById).put(updateClient).delete(deleteClient);
+// Get route to fetch all clients
+router.get("/", clientController.getAllClients);
 
-module.exports = router;
+// Get route to fetch a specific client by ID
+router.get("/:id", clientController.getClientById);
+
+// Post route to create a new client
+router.post("/", clientController.createClient);
+
+// Patch route to update an existing client
+router.patch("/:id", clientController.updateClient);
+
+// Delete route to delete an existing client
+router.delete("/:id", clientController.deleteClient);
+
+export default router;

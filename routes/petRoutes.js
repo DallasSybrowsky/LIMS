@@ -1,16 +1,21 @@
-const router = require("express").Router();
-const {
-  getAllPets,
-  getPetById,
-  createPet,
-  updatePet,
-  deletePet,
-} = require("../../controllers/petController");
+import express from "express";
+import petController from "../controllers/petController";
 
-// /api/pets
-router.route("/").get(getAllPets).post(createPet);
+const router = express.Router();
 
-// /api/pets/:id
-router.route("/:id").get(getPetById).put(updatePet).delete(deletePet);
+// Get route to fetch all pets
+router.get("/", petController.getAllPets);
 
-module.exports = router;
+// Get route to fetch a specific pet by ID
+router.get("/:id", petController.getPetById);
+
+// Post route to create a new pet
+router.post("/", petController.createPet);
+
+// Patch route to update an existing pet
+router.patch("/:id", petController.updatePet);
+
+// Delete route to delete an existing pet
+router.delete("/:id", petController.deletePet);
+
+export default router;
